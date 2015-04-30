@@ -26,12 +26,6 @@
 		        <div <?php post_class('archive-result content holder'); ?> id="page-<?php the_ID(); ?>">
 					<?php //echo wp_get_attachment_image( get_post_thumbnail_id(), 'full' );?>
 		        	<?php if(!get_post_format()) { get_template_part('format', 'standard'); } else { get_template_part('format', get_post_format()); } ?>
-		        	<div class="postmeta">
-						<p class="left"><i class="icon-reorder"></i> &nbsp;<?php _e("Category:", 'organicthemes'); ?> <?php the_category(', '); ?></p> 
-						<?php if ( has_tag() ) { ?>
-							<p class="right"><i class="icon-tags"></i> &nbsp;<?php _e("Tags:", 'organicthemes'); ?> <?php the_tags(''); ?></p>
-						<?php } else { } ?>
-					</div>
 		        </div>
 		
 				<?php endwhile; else: ?>         
