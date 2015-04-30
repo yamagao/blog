@@ -32,6 +32,7 @@
 	); ?>
 	
 	<?php if(of_get_option('display_social_blog') == '1') { ?>
+	<!--
 	<div class="social">
 		<div class="like-btn">
 		  	<div class="fb-like" href="<?php the_permalink(); ?>" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
@@ -51,6 +52,7 @@
 			<g:plusone size="medium" annotation="bubble" href="<?php the_permalink(); ?>"></g:plusone>
 		</div>
 	</div>
+	-->
 	<?php } else { ?>
 	<?php } ?>
 	
