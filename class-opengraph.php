@@ -519,6 +519,11 @@ class WPSEO_OpenGraph {
 			// og:description is still blank so grab it from get_the_excerpt()
 			if ( ! is_string( $ogdesc ) || ( is_string( $ogdesc ) && $ogdesc === '' ) ) {
 				$ogdesc = str_replace( '[&hellip;]', '&hellip;', strip_tags( get_the_excerpt() ) );
+				//modified by Yiqi
+				$ssb_post_sites = get_post_meta(get_the_ID(), 'ssb_post_sites', true );
+				$find = $ssb_post_sites['email'].$ssb_post_sites['fb'].$ssb_post_sites['twitter'].$ssb_post_sites['gplus'];
+				$ogdesc = str_replace( $find, '', $ogdesc );
+				//end
 			}
 		}
 
