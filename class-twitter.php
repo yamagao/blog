@@ -188,8 +188,13 @@ class WPSEO_Twitter {
 		if ( is_string( $meta_desc ) && '' !== $meta_desc ) {
 			return $meta_desc;
 		}
-
-		return strip_tags( get_the_excerpt() );
+		
+		//modified by Yiqi
+		$ssb_post_sites = get_post_meta(get_the_ID(), 'ssb_post_sites', true );
+		$find = $ssb_post_sites['email'].$ssb_post_sites['fb'].$ssb_post_sites['twitter'].$ssb_post_sites['gplus'];
+		return str_replace( $find, '', strip_tags( get_the_excerpt() ) );
+		//return strip_tags( get_the_excerpt() );
+		//end
 	}
 
 	/**
