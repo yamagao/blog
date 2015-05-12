@@ -521,7 +521,11 @@ class WPSEO_OpenGraph {
 				$ogdesc = str_replace( '[&hellip;]', '&hellip;', strip_tags( get_the_excerpt() ) );
 				//modified by Yiqi
 				$ssb_post_sites = get_post_meta(get_the_ID(), 'ssb_post_sites', true );
-				$find = $ssb_post_sites['email'].$ssb_post_sites['fb'].$ssb_post_sites['twitter'].$ssb_post_sites['gplus'];
+				$find = $ssb_post_sites['email']? $ssb_post_sites['email']:"0";
+				$find .= $ssb_post_sites['fb']? $ssb_post_sites['fb']:"0";
+				$find .= $ssb_post_sites['twitter']? $ssb_post_sites['twitter']:"0";
+				$find .= $ssb_post_sites['gplus']? $ssb_post_sites['gplus']:"0";
+				$ogdesc = str_replace( $find." ", '', $ogdesc );
 				$ogdesc = str_replace( $find, '', $ogdesc );
 				//end
 			}
