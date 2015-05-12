@@ -191,8 +191,14 @@ class WPSEO_Twitter {
 		
 		//modified by Yiqi
 		$ssb_post_sites = get_post_meta(get_the_ID(), 'ssb_post_sites', true );
-		$find = $ssb_post_sites['email'].$ssb_post_sites['fb'].$ssb_post_sites['twitter'].$ssb_post_sites['gplus'];
-		return str_replace( $find, '', strip_tags( get_the_excerpt() ) );
+		$find = $ssb_post_sites['email']? $ssb_post_sites['email']:"0";
+		$find .= $ssb_post_sites['fb']? $ssb_post_sites['fb']:"0";
+		$find .= $ssb_post_sites['twitter']? $ssb_post_sites['twitter']:"0";
+		$find .= $ssb_post_sites['gplus']? $ssb_post_sites['gplus']:"0";
+		//$find = $ssb_post_sites['email'].$ssb_post_sites['fb'].$ssb_post_sites['twitter'].$ssb_post_sites['gplus'];
+		$result1 = str_replace( $find." ", '', strip_tags( get_the_excerpt() ) );
+		$result1 = str_replace( $find, '', $result1);
+		return $result1;
 		//return strip_tags( get_the_excerpt() );
 		//end
 	}
